@@ -1,0 +1,60 @@
+Default Props
+function User({ name = "New User" }) {
+  return <h1>Hi, {name}</h1>;
+}
+
+export default User;
+
+
+Usage in App.jsx
+<User name="Anil Sidhu" />
+<User name="Sam" />
+<User name="Bhasker" />
+<User />          // Will show "Hi, New User"
+<User />          // Will show "Hi, New User"
+
+
+children Props (JSX as Props)
+When you pass JSX content between component tags, it is received as children.
+
+import Wrapper from "./Wrapper";
+
+function App() {
+  return (
+    <div>
+      <h1>Props in React js</h1>
+      <Wrapper color="Orange">
+        <h1>Hello Everyone</h1>
+      </Wrapper>
+
+      <Wrapper>
+        <h1>Hello Anil</h1>
+      </Wrapper>
+
+      <Wrapper>
+        <h1>Hello Admin</h1>
+        <h2 style={{ color: "Red" }}>Please Login</h2>
+      </Wrapper>
+    </div>
+  );
+}
+
+export default App;
+Wrapper.jsx
+function Wrapper({ children, color = "green" }) {
+  return (
+    <div
+      style={{
+        color: color,
+        border: "5px Solid Green",
+        width: "300px",
+        margin: "10px",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+export default Wrapper;
+You can use props to customize the styles of components dynamically.
